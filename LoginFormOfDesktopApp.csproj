@@ -5,7 +5,7 @@
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>LoginFormOfDesktopApp.Program</StartupObject>
-    <ApplicationIcon />
+    <ApplicationIcon>accept_icon-icons.com_74428.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

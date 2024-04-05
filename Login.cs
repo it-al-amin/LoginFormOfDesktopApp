@@ -13,9 +13,9 @@ using System.Data.SqlClient;
 
 namespace LoginFormOfDesktopApp
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -52,7 +52,7 @@ namespace LoginFormOfDesktopApp
                 con.Open();
 
                 // SQL query
-                string query = "SELECT * FROM LOGIN_TBL WHERE UserName=@user AND Password=@pass";
+                string query = "SELECT * FROM SignUp WHERE (StuName=@user OR Email=@user) AND Password=@pass";
 
                 // Create a command to execute the query
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -67,6 +67,9 @@ namespace LoginFormOfDesktopApp
                 if (dr.HasRows)
                 {
                     MessageBox.Show("LOGIN SUCCESSFUL!!","SUCCESS",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    Form2 fm = new Form2();
+                    this.Hide();
+                    fm.ShowDialog();
                 }
                 else
                 {
@@ -109,6 +112,13 @@ namespace LoginFormOfDesktopApp
             {
                 errorProvider2.Clear();
             }
+        }
+
+        private void Registerlink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SignUpForm sn = new SignUpForm();
+            sn.ShowDialog();
+
         }
     }
 }
